@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Airbnb Inspired Home</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32 9.5c9.3 0 16.8 7.5 16.8 16.8C48.8 39 32 54.5 32 54.5S15.2 39 15.2 26.3C15.2 17 22.7 9.5 32 9.5Z' fill='none' stroke='%23ff385c' stroke-width='4.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='32' cy='27' r='5.1' fill='none' stroke='%23ff385c' stroke-width='4.5'/%3E%3C/svg%3E"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="shell shell-header">
+        <div class="topbar">
+          <a class="brand" href="#" aria-label="Airbnb home">
+            <span class="brand-mark" aria-hidden="true">
+              <svg viewBox="0 0 64 64" role="presentation">
+                <path d="M32 9.5c9.3 0 16.8 7.5 16.8 16.8C48.8 39 32 54.5 32 54.5S15.2 39 15.2 26.3C15.2 17 22.7 9.5 32 9.5Z" />
+                <circle cx="32" cy="27" r="5.1" />
+              </svg>
+            </span>
+            <span class="brand-wordmark">airbnb</span>
+          </a>
+
+          <nav class="nav-tabs" aria-label="Primary sections">
+            <button class="nav-tab" type="button" data-tab="homes">
+              <span class="tab-icon emoji" aria-hidden="true">🏠</span>
+              <span class="tab-label">Homes</span>
+            </button>
+            <button class="nav-tab" type="button" data-tab="experiences">
+              <span class="tab-icon emoji" aria-hidden="true">🎈</span>
+              <span class="tab-copy">
+                <span class="tab-badge">NEW</span>
+                <span class="tab-label">Experiences</span>
+              </span>
+            </button>
+            <button class="nav-tab is-active" type="button" data-tab="services">
+              <span class="tab-icon emoji" aria-hidden="true">🛎️</span>
+              <span class="tab-copy">
+                <span class="tab-badge">NEW</span>
+                <span class="tab-label">Services</span>
+              </span>
+            </button>
+          </nav>
+
+          <div class="sticky-search-pill" role="group" aria-label="Search services">
+            <span class="sticky-pill-icon" aria-hidden="true">
+              <!-- <svg viewBox="0 0 24 24" role="presentation">
+                <path d="M5 14.5a7 7 0 1 1 14 0" />
+                <path d="M3.8 14.5h16.4" />
+                <path d="M6.6 14.5v4.2h10.8v-4.2" />
+                <circle cx="12" cy="5.8" r="1.2" />
+              </svg> -->
+              🛎️
+            </span>
+            <button class="sticky-pill-trigger" type="button" data-sticky-target="where">
+              <span class="sticky-pill-copy">Anywhere</span>
+            </button>
+            <span class="sticky-pill-divider" aria-hidden="true"></span>
+            <button class="sticky-pill-trigger" type="button" data-sticky-target="when">
+              <span class="sticky-pill-copy">Anytime</span>
+            </button>
+            <span class="sticky-pill-divider" aria-hidden="true"></span>
+            <button class="sticky-pill-trigger" type="button" data-sticky-target="service">
+              <span class="sticky-pill-copy">Add service</span>
+            </button>
+            <button class="sticky-pill-submit" type="button" aria-label="Open service search" data-sticky-target="service">
+              <svg viewBox="0 0 24 24" role="presentation">
+                <circle cx="11" cy="11" r="5.5" />
+                <path d="m15.2 15.2 4.3 4.3" />
+              </svg>
+            </button>
+          </div>
+
+          <div class="top-actions">
+            <a class="host-link" href="#">Become a host</a>
+            <button class="round-icon-button" type="button" aria-label="Change region">
+              <svg viewBox="0 0 24 24" role="presentation">
+                <path d="M12 2.5c5.2 0 9.5 4.3 9.5 9.5s-4.3 9.5-9.5 9.5S2.5 17.2 2.5 12 6.8 2.5 12 2.5Z" />
+                <path d="M3.4 12h17.2" />
+                <path d="M12 2.9c2.4 2.5 3.8 5.7 3.8 9.1S14.4 18.6 12 21.1" />
+                <path d="M12 2.9c-2.4 2.5-3.8 5.7-3.8 9.1S9.6 18.6 12 21.1" />
+              </svg>
+            </button>
+            <button
+              class="menu-button"
+              type="button"
+              aria-label="Open menu"
+              aria-expanded="false"
+            >
+              <svg viewBox="0 0 24 24" role="presentation">
+                <path d="M5 8h14" />
+                <path d="M5 12h14" />
+                <path d="M5 16h14" />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="mobile-header-panel">
+          <button class="mobile-search-pill" type="button" aria-label="Start your search">
+            <span class="mobile-search-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" role="presentation">
+                <circle cx="11" cy="11" r="5.5" />
+                <path d="m15.2 15.2 4.3 4.3" />
+              </svg>
+            </span>
+            <span class="mobile-search-pill-copy">Start your search</span>
+          </button>
+
+          <nav class="mobile-service-tabs" aria-label="Mobile sections">
+            <button class="mobile-service-tab" type="button" data-tab="homes">
+              <span class="mobile-service-icon" aria-hidden="true">🏠</span>
+              <span class="mobile-service-label">Homes</span>
+            </button>
+            <button class="mobile-service-tab" type="button" data-tab="experiences">
+              <span class="mobile-service-icon" aria-hidden="true">🎈</span>
+              <span class="mobile-service-badge">NEW</span>
+              <span class="mobile-service-label">Experiences</span>
+            </button>
+            <button class="mobile-service-tab is-active" type="button" data-tab="services">
+              <span class="mobile-service-icon" aria-hidden="true">🛎️</span>
+              <span class="mobile-service-badge">NEW</span>
+              <span class="mobile-service-label">Services</span>
+            </button>
+          </nav>
+        </div>
+
+        <div class="mobile-search-modal" id="mobile-search-modal" hidden>
+          <div class="mobile-search-backdrop" data-mobile-close></div>
+          <div class="mobile-search-sheet" role="dialog" aria-modal="true" aria-labelledby="mobile-search-title">
+            <div class="mobile-search-scroll">
+              <section class="mobile-search-card mobile-search-card-where is-active" data-mobile-panel="where">
+                <div class="mobile-search-card-head">
+                  <div>
+                    <p class="mobile-search-card-label">Where</p>
+                    <h2 class="mobile-search-title" id="mobile-search-title">Where?</h2>
+                  </div>
+                  <button class="mobile-search-close" type="button" aria-label="Close search" data-mobile-close>
+                    <svg viewBox="0 0 24 24" role="presentation">
+                      <path d="M6 6l12 12" />
+                      <path d="M18 6 6 18" />
+                    </svg>
+                  </button>
+                </div>
+
+                <label class="mobile-destination-search" for="mobile-destination-search">
+                  <span class="mobile-search-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" role="presentation">
+                      <circle cx="11" cy="11" r="5.5" />
+                      <path d="m15.2 15.2 4.3 4.3" />
+                    </svg>
+                  </span>
+                  <input
+                    type="search"
+                    id="mobile-destination-search"
+                    class="mobile-destination-input"
+                    placeholder="Search destinations"
+                    autocomplete="off"
+                  />
+                </label>
+
+                <p class="mobile-search-section-title">Suggested destinations</p>
+                <div class="mobile-where-option-list" aria-label="Suggested destinations">
+                  <button
+                    class="mobile-where-option"
+                    type="button"
+                    data-destination="Nearby"
+                    style="--option-bg:#edf4ff; --option-color:#4b8fe2;"
+                  >
+                    <span class="where-option-icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" role="presentation">
+                        <path d="M21 3 10 14" />
+                        <path d="m21 3-7.5 18-3.6-7-6.9-3.7L21 3Z" />
+                      </svg>
+                    </span>
+                    <span class="where-option-copy">
+                      <strong>Nearby</strong>
+                      <span>Find what's around you</span>
+                    </span>
+                  </button>
+                  <button
+                    class="mobile-where-option"
+                    type="button"
+                    data-destination="Kochi, Kerala"
+                    style="--option-bg:#fff1f4; --option-color:#ff4d74;"
+                  >
+                    <span class="where-option-icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" role="presentation">
+                        <path d="M4 18.5h16" />
+                        <path d="M6 18.5v-8h12v8" />
+                        <path d="M9 18.5v-4h2.5v4" />
+                        <path d="M14.5 8V5.5h4V8" />
+                        <path d="M7.5 7h2" />
+                        <path d="M7.5 9.5h2" />
+                        <path d="M15 18.5c1.1-2.4 2.6-4 5-5" />
+                        <path d="M17 10.5c.6-.9 1.5-1.5 2.8-1.9" />
+                        <path d="M3.5 20.5c2.2-1 4.5-1 6.7 0" />
+                      </svg>
+                    </span>
+                    <span class="where-option-copy">
+                      <strong>Kochi, Kerala</strong>
+                      <span>For nature lovers</span>
+                    </span>
+                  </button>
+                  <button
+                    class="mobile-where-option"
+                    type="button"
+                    data-destination="New Delhi, Delhi"
+                    style="--option-bg:#eef8f1; --option-color:#2c8a4d;"
+                  >
+                    <span class="where-option-icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" role="presentation">
+                        <path d="M4 18.5h16" />
+                        <path d="M6 18.5V8.5h7v10" />
+                        <path d="M10 18.5V12h3" />
+                        <path d="M15.5 18.5V6.5l2.5 2.2v9.8" />
+                        <path d="M8 11h1.5" />
+                        <path d="M8 13.8h1.5" />
+                        <path d="M19 18.5c-.5-3.1.2-5.8 2-8" />
+                        <path d="M19 14.2c1 .1 1.8-.1 2.5-.7" />
+                      </svg>
+                    </span>
+                    <span class="where-option-copy">
+                      <strong>New Delhi, Delhi</strong>
+                      <span>For sights like India Gate</span>
+                    </span>
+                  </button>
+                  <button
+                    class="mobile-where-option"
+                    type="button"
+                    data-destination="North Goa, Goa"
+                    style="--option-bg:#fff5e9; --option-color:#c18b37;"
+                  >
+                    <span class="where-option-icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" role="presentation">
+                        <path d="M4 18.5h16" />
+                        <path d="M6 18.5v-8h7v8" />
+                        <path d="M9 18.5v-4h2.5" />
+                        <path d="M16 18.5c.6-2.8 1.8-4.9 4.2-6.8" />
+                        <path d="M17.6 9c.3-1.8.9-3.2 2.2-4.5" />
+                        <path d="M18.7 7.2c.8.5 1.5.6 2.4.3" />
+                        <path d="M3.5 20.5c2.4-.9 4.8-.9 7.2 0" />
+                      </svg>
+                    </span>
+                    <span class="where-option-copy">
+                      <strong>North Goa, Goa</strong>
+                      <span>Popular beach destination</span>
+                    </span>
+                  </button>
+                </div>
+              </section>
+
+              <button class="mobile-search-summary" type="button" data-mobile-summary="when" data-mobile-open-panel="when">
+                <span class="mobile-search-summary-label">When</span>
+                <span class="mobile-search-summary-value mobile-when-summary">Add dates</span>
+              </button>
+
+              <section class="mobile-search-card mobile-search-card-when" data-mobile-panel="when" hidden>
+                <button class="mobile-panel-back" type="button" data-mobile-open-panel="where">
+                  <svg viewBox="0 0 24 24" role="presentation">
+                    <path d="m14.5 6.5-5 5.5 5 5.5" />
+                  </svg>
+                  <span>When</span>
+                </button>
+
+                <div class="mobile-date-preset-list" aria-label="Quick date options">
+                  <button class="mobile-date-preset" type="button" data-preset="today">
+                    <strong>Today</strong>
+                    <span class="mobile-date-preset-copy"></span>
+                  </button>
+                  <button class="mobile-date-preset" type="button" data-preset="tomorrow">
+                    <strong>Tomorrow</strong>
+                    <span class="mobile-date-preset-copy"></span>
+                  </button>
+                  <button class="mobile-date-preset" type="button" data-preset="weekend">
+                    <strong>This weekend</strong>
+                    <span class="mobile-date-preset-copy"></span>
+                  </button>
+                </div>
+
+                <div class="mobile-date-calendar">
+                  <div class="date-calendar-header">
+                    <button class="mobile-date-nav-button" type="button" data-month-nav="prev" aria-label="Previous month">
+                      <svg viewBox="0 0 24 24" role="presentation"><path d="m14.5 6.5-5 5.5 5 5.5" /></svg>
+                    </button>
+                    <h3 class="mobile-date-calendar-title"></h3>
+                    <button class="mobile-date-nav-button" type="button" data-month-nav="next" aria-label="Next month">
+                      <svg viewBox="0 0 24 24" role="presentation"><path d="m9.5 6.5 5 5.5-5 5.5" /></svg>
+                    </button>
+                  </div>
+                  <div class="date-weekdays" aria-hidden="true">
+                    <span>S</span>
+                    <span>M</span>
+                    <span>T</span>
+                    <span>W</span>
+                    <span>T</span>
+                    <span>F</span>
+                    <span>S</span>
+                  </div>
+                  <div class="mobile-date-grid" role="grid" aria-label="Calendar dates"></div>
+                </div>
+              </section>
+
+              <button class="mobile-search-summary" type="button" data-mobile-summary="who" data-mobile-open-panel="who">
+                <span class="mobile-search-summary-label">Who</span>
+                <span class="mobile-search-summary-value mobile-guests-summary">Add guests</span>
+              </button>
+
+              <section class="mobile-search-card mobile-search-card-who" data-mobile-panel="who" hidden>
+                <button class="mobile-panel-back" type="button" data-mobile-open-panel="where">
+                  <svg viewBox="0 0 24 24" role="presentation">
+                    <path d="m14.5 6.5-5 5.5 5 5.5" />
+                  </svg>
+                  <span>Who</span>
+                </button>
+
+                <div class="guest-counter-list">
+                  <div class="guest-counter-row">
+                    <div>
+                      <strong>Adults</strong>
+                      <span>Ages 13 or above</span>
+                    </div>
+                    <div class="guest-stepper">
+                      <button class="guest-stepper-button" type="button" data-guest-type="adults" data-step="-1" aria-label="Decrease adults">-</button>
+                      <span class="guest-stepper-value" data-guest-output="adults">0</span>
+                      <button class="guest-stepper-button" type="button" data-guest-type="adults" data-step="1" aria-label="Increase adults">+</button>
+                    </div>
+                  </div>
+                  <div class="guest-counter-row">
+                    <div>
+                      <strong>Children</strong>
+                      <span>Ages 2-12</span>
+                    </div>
+                    <div class="guest-stepper">
+                      <button class="guest-stepper-button" type="button" data-guest-type="children" data-step="-1" aria-label="Decrease children">-</button>
+                      <span class="guest-stepper-value" data-guest-output="children">0</span>
+                      <button class="guest-stepper-button" type="button" data-guest-type="children" data-step="1" aria-label="Increase children">+</button>
+                    </div>
+                  </div>
+                  <div class="guest-counter-row">
+                    <div>
+                      <strong>Infants</strong>
+                      <span>Under 2</span>
+                    </div>
+                    <div class="guest-stepper">
+                      <button class="guest-stepper-button" type="button" data-guest-type="infants" data-step="-1" aria-label="Decrease infants">-</button>
+                      <span class="guest-stepper-value" data-guest-output="infants">0</span>
+                      <button class="guest-stepper-button" type="button" data-guest-type="infants" data-step="1" aria-label="Increase infants">+</button>
+                    </div>
+                  </div>
+                  <div class="guest-counter-row">
+                    <div>
+                      <strong>Pets</strong>
+                      <span>Bringing a service animal?</span>
+                    </div>
+                    <div class="guest-stepper">
+                      <button class="guest-stepper-button" type="button" data-guest-type="pets" data-step="-1" aria-label="Decrease pets">-</button>
+                      <span class="guest-stepper-value" data-guest-output="pets">0</span>
+                      <button class="guest-stepper-button" type="button" data-guest-type="pets" data-step="1" aria-label="Increase pets">+</button>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </div>
+
+            <div class="mobile-search-footer">
+              <button class="mobile-clear-button" type="button">Clear all</button>
+              <button class="mobile-submit-button" type="button">
+                <svg viewBox="0 0 24 24" role="presentation">
+                  <circle cx="11" cy="11" r="5.5" />
+                  <path d="m15.2 15.2 4.3 4.3" />
+                </svg>
+                <span>Search</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="search-wrap">
+          <form class="search-panel" action="#" method="get">
+            <label class="search-field search-field-where">
+              <span class="field-title">Where</span>
+              <input
+                type="text"
+                name="where"
+                class="where-input"
+                placeholder="Search destinations"
+                readonly
+                aria-haspopup="dialog"
+                aria-expanded="false"
+                aria-controls="where-picker-popover"
+              />
+            </label>
+            <label class="search-field search-field-when">
+              <span class="field-title">When</span>
+              <input
+                type="text"
+                name="when"
+                class="when-input"
+                placeholder="Add dates"
+                readonly
+                aria-haspopup="dialog"
+                aria-expanded="false"
+                aria-controls="date-picker-popover"
+              />
+            </label>
+            <label class="search-field search-field-service">
+              <span class="field-title">Type of service</span>
+              <input
+                type="text"
+                name="service"
+                class="service-input"
+                placeholder="Add service"
+                readonly
+                aria-haspopup="dialog"
+                aria-expanded="false"
+                aria-controls="service-picker-popover"
+              />
+            </label>
+            <button class="search-button" type="submit" aria-label="Search">
+              <svg viewBox="0 0 24 24" role="presentation">
+                <circle cx="11" cy="11" r="5.5" />
+                <path d="m15.2 15.2 4.3 4.3" />
+              </svg>
+            </button>
+          </form>
+
+          <div class="where-popover" id="where-picker-popover" hidden>
+            <p class="where-popover-title">Suggested destinations</p>
+            <div class="where-option-list" aria-label="Suggested destinations">
+              <button
+                class="where-option"
+                type="button"
+                data-destination="Nearby"
+                style="--option-bg:#edf4ff; --option-color:#4b8fe2;"
+              >
+                <span class="where-option-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" role="presentation">
+                    <path d="M21 3 10 14" />
+                    <path d="m21 3-7.5 18-3.6-7-6.9-3.7L21 3Z" />
+                  </svg>
+                </span>
+                <span class="where-option-copy">
+                  <strong>Nearby</strong>
+                  <span>Find what's around you</span>
+                </span>
+              </button>
+              <button
+                class="where-option"
+                type="button"
+                data-destination="Kochi, Kerala"
+                style="--option-bg:#fff1f4; --option-color:#ff4d74;"
+              >
+                <span class="where-option-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" role="presentation">
+                    <path d="M4 18.5h16" />
+                    <path d="M6 18.5v-8h12v8" />
+                    <path d="M9 18.5v-4h2.5v4" />
+                    <path d="M14.5 8V5.5h4V8" />
+                    <path d="M7.5 7h2" />
+                    <path d="M7.5 9.5h2" />
+                    <path d="M15 18.5c1.1-2.4 2.6-4 5-5" />
+                    <path d="M17 10.5c.6-.9 1.5-1.5 2.8-1.9" />
+                    <path d="M3.5 20.5c2.2-1 4.5-1 6.7 0" />
+                  </svg>
+                </span>
+                <span class="where-option-copy">
+                  <strong>Kochi, Kerala</strong>
+                  <span>For nature lovers</span>
+                </span>
+              </button>
+              <button
+                class="where-option"
+                type="button"
+                data-destination="New Delhi, Delhi"
+                style="--option-bg:#eef8f1; --option-color:#2c8a4d;"
+              >
+                <span class="where-option-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" role="presentation">
+                    <path d="M4 18.5h16" />
+                    <path d="M6 18.5V8.5h7v10" />
+                    <path d="M10 18.5V12h3" />
+                    <path d="M15.5 18.5V6.5l2.5 2.2v9.8" />
+                    <path d="M8 11h1.5" />
+                    <path d="M8 13.8h1.5" />
+                    <path d="M19 18.5c-.5-3.1.2-5.8 2-8" />
+                    <path d="M19 14.2c1 .1 1.8-.1 2.5-.7" />
+                  </svg>
+                </span>
+                <span class="where-option-copy">
+                  <strong>New Delhi, Delhi</strong>
+                  <span>For sights like India Gate</span>
+                </span>
+              </button>
+              <button
+                class="where-option"
+                type="button"
+                data-destination="North Goa, Goa"
+                style="--option-bg:#fff5e9; --option-color:#c18b37;"
+              >
+                <span class="where-option-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" role="presentation">
+                    <path d="M4 18.5h16" />
+                    <path d="M6 18.5v-8h7v8" />
+                    <path d="M9 18.5v-4h2.5" />
+                    <path d="M16 18.5c.6-2.8 1.8-4.9 4.2-6.8" />
+                    <path d="M17.6 9c.3-1.8.9-3.2 2.2-4.5" />
+                    <path d="M18.7 7.2c.8.5 1.5.6 2.4.3" />
+                    <path d="M3.5 20.5c2.4-.9 4.8-.9 7.2 0" />
+                  </svg>
+                </span>
+                <span class="where-option-copy">
+                  <strong>North Goa, Goa</strong>
+                  <span>Popular beach destination</span>
+                </span>
+              </button>
+              <button
+                class="where-option"
+                type="button"
+                data-destination="Jaipur, Rajasthan"
+                style="--option-bg:#eef1fb; --option-color:#315a9d;"
+              >
+                <span class="where-option-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" role="presentation">
+                    <path d="M4 18.5h16" />
+                    <path d="M6 18.5V8.5h5v10" />
+                    <path d="M11 18.5V5.5h4v13" />
+                    <path d="M15 18.5v-6h3v6" />
+                    <path d="M8 11h1" />
+                    <path d="M12.3 8.8h1" />
+                    <path d="M12.3 11.5h1" />
+                    <path d="M17.5 18.5c.3-2.8 1.2-5.2 3-7.2" />
+                    <path d="M19 10c.2-1.6.7-2.9 1.8-4" />
+                  </svg>
+                </span>
+                <span class="where-option-copy">
+                  <strong>Jaipur, Rajasthan</strong>
+                  <span>For its stunning architecture</span>
+                </span>
+              </button>
+              <button
+                class="where-option"
+                type="button"
+                data-destination="Puducherry, Puducherry"
+                style="--option-bg:#fff1ef; --option-color:#ff6a52;"
+              >
+                <span class="where-option-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" role="presentation">
+                    <path d="M4 18.5h16" />
+                    <path d="M6 18.5v-8h7v8" />
+                    <path d="M9 18.5v-4h2.5" />
+                    <path d="M16.5 18.5c1-2.3 2.4-4.2 4.8-5.6" />
+                    <path d="M18.2 10.2c.4-1.7 1.1-3.1 2.4-4.3" />
+                    <path d="M3.5 20.5c2.5-.9 5-.9 7.5 0" />
+                  </svg>
+                </span>
+                <span class="where-option-copy">
+                  <strong>Puducherry, Puducherry</strong>
+                  <span>For sights like Sri Aurobindo Ashram</span>
+                </span>
+              </button>
+            </div>
+          </div>
+
+          <div class="date-popover" id="date-picker-popover" hidden>
+            <div class="date-preset-list" aria-label="Quick date options">
+              <button class="date-preset" type="button" data-preset="today">
+                <strong>Today</strong>
+                <span class="date-preset-copy"></span>
+              </button>
+              <button class="date-preset" type="button" data-preset="tomorrow">
+                <strong>Tomorrow</strong>
+                <span class="date-preset-copy"></span>
+              </button>
+              <button class="date-preset" type="button" data-preset="weekend">
+                <strong>This weekend</strong>
+                <span class="date-preset-copy"></span>
+              </button>
+            </div>
+
+            <div class="date-calendar">
+              <div class="date-calendar-header">
+                <button class="date-nav-button" type="button" data-month-nav="prev" aria-label="Previous month">
+                  <svg viewBox="0 0 24 24" role="presentation"><path d="m14.5 6.5-5 5.5 5 5.5" /></svg>
+                </button>
+                <h3 class="date-calendar-title"></h3>
+                <button class="date-nav-button" type="button" data-month-nav="next" aria-label="Next month">
+                  <svg viewBox="0 0 24 24" role="presentation"><path d="m9.5 6.5 5 5.5-5 5.5" /></svg>
+                </button>
+              </div>
+              <div class="date-weekdays" aria-hidden="true">
+                <span>S</span>
+                <span>M</span>
+                <span>T</span>
+                <span>W</span>
+                <span>T</span>
+                <span>F</span>
+                <span>S</span>
+              </div>
+              <div class="date-grid" role="grid" aria-label="Calendar dates"></div>
+            </div>
+          </div>
+
+          <div class="service-popover" id="service-picker-popover" hidden>
+            <div class="service-chip-grid" aria-label="Service options">
+              <button class="service-chip" type="button" data-service="Photography">
+                <span class="service-chip-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" role="presentation">
+                    <path d="M6.5 8.5h11a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2h-11a2 2 0 0 1-2-2v-6a2 2 0 0 1 2-2Z" />
+                    <path d="M9 8.5 10.2 6h3.6L15 8.5" />
+                    <circle cx="12" cy="13.5" r="3" />
+                  </svg>
+                </span>
+                <span>Photography</span>
+              </button>
+              <button class="service-chip" type="button" data-service="Chefs">
+                <span class="service-chip-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" role="presentation">
+                    <path d="M8 10V8.8a4 4 0 1 1 8 0V10" />
+                    <path d="M7 10h10v2.5a5 5 0 0 1-10 0Z" />
+                  </svg>
+                </span>
+                <span>Chefs</span>
+              </button>
+              <button class="service-chip" type="button" data-service="Massage">
+                <span class="service-chip-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" role="presentation">
+                    <path d="M5 12h14" />
+                    <path d="M7 12v4.5" />
+                    <path d="M17 12v4.5" />
+                    <path d="M9 9.5h6" />
+                  </svg>
+                </span>
+                <span>Massage</span>
+              </button>
+              <button class="service-chip" type="button" data-service="Prepared meals">
+                <span class="service-chip-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" role="presentation">
+                    <path d="M6 8.5h12v8H6Z" />
+                    <path d="M9 8.5v-2h6v2" />
+                    <path d="M6 12h12" />
+                  </svg>
+                </span>
+                <span>Prepared meals</span>
+              </button>
+              <button class="service-chip" type="button" data-service="Training">
+                <span class="service-chip-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" role="presentation">
+                    <circle cx="12" cy="12" r="5.5" />
+                    <path d="M12 8.5v4l2.5 1.8" />
+                  </svg>
+                </span>
+                <span>Training</span>
+              </button>
+              <button class="service-chip" type="button" data-service="Make-up">
+                <span class="service-chip-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" role="presentation">
+                    <path d="M8 6.5h5l1.5 10H9.5Z" />
+                    <path d="M10 6.5v-2h3v2" />
+                    <path d="M16 8.5h2.5v8H16" />
+                  </svg>
+                </span>
+                <span>Make-up</span>
+              </button>
+              <button class="service-chip" type="button" data-service="Hair">
+                <span class="service-chip-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" role="presentation">
+                    <path d="M8 7.5v9" />
+                    <path d="M16 7.5v9" />
+                    <path d="M8 12h8" />
+                    <path d="M6 7.5h4" />
+                    <path d="M14 7.5h4" />
+                  </svg>
+                </span>
+                <span>Hair</span>
+              </button>
+              <button class="service-chip" type="button" data-service="Spa treatments">
+                <span class="service-chip-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" role="presentation">
+                    <path d="M7 10.5h10v7H7Z" />
+                    <path d="M9 10.5c0-2 1.2-3.2 3-4 1.8.8 3 2 3 4" />
+                    <path d="M12 8.5V6" />
+                  </svg>
+                </span>
+                <span>Spa treatments</span>
+              </button>
+              <button class="service-chip" type="button" data-service="Catering">
+                <span class="service-chip-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" role="presentation">
+                    <path d="M6.5 10h11v6h-11Z" />
+                    <path d="M8.5 10V7.5h7V10" />
+                    <path d="M5 16h14" />
+                  </svg>
+                </span>
+                <span>Catering</span>
+              </button>
+              <button class="service-chip" type="button" data-service="Nails">
+                <span class="service-chip-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" role="presentation">
+                    <path d="M10 6.5h4v11h-4Z" />
+                    <path d="M9 17.5h6" />
+                    <path d="M11 6.5V4.5h2v2" />
+                  </svg>
+                </span>
+                <span>Nails</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="mobile-drawer" id="mobile-drawer" hidden>
+          <nav class="mobile-tabs" aria-label="Mobile sections">
+            <button class="mobile-tab" type="button" data-tab="homes">Homes</button>
+            <button class="mobile-tab" type="button" data-tab="experiences">Experiences</button>
+            <button class="mobile-tab is-active" type="button" data-tab="services">Services</button>
+          </nav>
+          <a class="mobile-host-link" href="#">Become a host</a>
+        </div>
+
+        <div class="desktop-menu-popover" id="desktop-menu-popover" hidden>
+          <a class="desktop-menu-link desktop-menu-link-strong" href="#">
+            <span class="desktop-menu-icon" aria-hidden="true">?</span>
+            <span>Help Centre</span>
+          </a>
+
+          <div class="desktop-menu-feature">
+            <div>
+              <strong>Become a host</strong>
+              <p>It's easy to start hosting and earn extra income.</p>
+            </div>
+            <span class="desktop-menu-feature-art" aria-hidden="true">🧍</span>
+          </div>
+
+          <a class="desktop-menu-link" href="#">Refer a host</a>
+          <a class="desktop-menu-link" href="#">Find a co-host</a>
+          <a class="desktop-menu-link desktop-menu-link-strong" href="#">Log in or sign up</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="listing-section">
+        <div class="shell">
+          <div class="section-head">
+            <h2>Chefs</h2>
+            <div class="rail-controls">
+              <button class="rail-button" type="button" data-target="chefs-row" data-direction="prev" aria-label="Scroll chefs left">
+                <svg viewBox="0 0 24 24" role="presentation"><path d="m14.5 6.5-5 5.5 5 5.5" /></svg>
+              </button>
+              <button class="rail-button" type="button" data-target="chefs-row" data-direction="next" aria-label="Scroll chefs right">
+                <svg viewBox="0 0 24 24" role="presentation"><path d="m9.5 6.5 5 5.5-5 5.5" /></svg>
+              </button>
+            </div>
+          </div>
+          <div class="card-rail" id="chefs-row"></div>
+        </div>
+      </section>
+
+      <section class="listing-section">
+        <div class="shell">
+          <div class="section-head">
+            <h2>Training</h2>
+            <div class="rail-controls">
+              <button class="rail-button" type="button" data-target="training-row" data-direction="prev" aria-label="Scroll training left">
+                <svg viewBox="0 0 24 24" role="presentation"><path d="m14.5 6.5-5 5.5 5 5.5" /></svg>
+              </button>
+              <button class="rail-button" type="button" data-target="training-row" data-direction="next" aria-label="Scroll training right">
+                <svg viewBox="0 0 24 24" role="presentation"><path d="m9.5 6.5 5 5.5-5 5.5" /></svg>
+              </button>
+            </div>
+          </div>
+          <div class="card-rail" id="training-row"></div>
+        </div>
+      </section>
+
+      <section class="listing-section">
+        <div class="shell">
+          <div class="section-head">
+            <h2>Massage</h2>
+            <div class="rail-controls">
+              <button class="rail-button" type="button" data-target="massage-row" data-direction="prev" aria-label="Scroll massage left">
+                <svg viewBox="0 0 24 24" role="presentation"><path d="m14.5 6.5-5 5.5 5 5.5" /></svg>
+              </button>
+              <button class="rail-button" type="button" data-target="massage-row" data-direction="next" aria-label="Scroll massage right">
+                <svg viewBox="0 0 24 24" role="presentation"><path d="m9.5 6.5 5 5.5-5 5.5" /></svg>
+              </button>
+            </div>
+          </div>
+          <div class="card-rail" id="massage-row"></div>
+        </div>
+      </section>
+
+      <section class="inspiration-section">
+        <div class="shell">
+          <div class="inspiration-header">
+            <h2>Inspiration for future getaways</h2>
+            <div class="inspiration-tabs" aria-label="Inspiration categories">
+              <button class="inspiration-tab is-active" type="button" data-group="popular">Popular</button>
+              <button class="inspiration-tab" type="button" data-group="arts">Arts &amp; culture</button>
+              <button class="inspiration-tab" type="button" data-group="beach">Beach</button>
+              <button class="inspiration-tab" type="button" data-group="mountains">Mountains</button>
+              <button class="inspiration-tab" type="button" data-group="outdoors">Outdoors</button>
+              <button class="inspiration-tab" type="button" data-group="things">Things to do</button>
+            </div>
+          </div>
+          <div class="inspiration-grid" id="inspiration-grid"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="shell footer-links">
+        <div class="footer-column">
+          <h3>Support</h3>
+          <a href="#">Help Centre</a>
+          <a href="#">Get help with a safety issue</a>
+          <a href="#">AirCover</a>
+          <a href="#">Anti-discrimination</a>
+          <a href="#">Disability support</a>
+          <a href="#">Cancellation options</a>
+          <a href="#">Report neighbourhood concern</a>
+        </div>
+        <div class="footer-column">
+          <h3>Hosting</h3>
+          <a href="#">Airbnb your home</a>
+          <a href="#">Airbnb your experience</a>
+          <a href="#">Airbnb your service</a>
+          <a href="#">AirCover for Hosts</a>
+          <a href="#">Hosting resources</a>
+          <a href="#">Community forum</a>
+          <a href="#">Hosting responsibly</a>
+          <a href="#">Join a free hosting class</a>
+          <a href="#">Find a co-host</a>
+          <a href="#">Refer a host</a>
+        </div>
+        <div class="footer-column">
+          <h3>Airbnb</h3>
+          <a href="#">2025 Summer Release</a>
+          <a href="#">Newsroom</a>
+          <a href="#">Careers</a>
+          <a href="#">Investors</a>
+          <a href="#">Airbnb.org emergency stays</a>
+        </div>
+      </div>
+
+      <div class="shell footer-bottom">
+        <div class="footer-meta">
+          <span>&copy; 2026 Airbnb, Inc.</span>
+          <span>&middot;</span>
+          <a href="#">Privacy</a>
+          <span>&middot;</span>
+          <a href="#">Terms</a>
+          <span>&middot;</span>
+          <a href="#">Company details</a>
+        </div>
+        <div class="footer-social">
+          <span class="footer-locale">
+            <svg viewBox="0 0 24 24" role="presentation">
+              <path d="M12 2.5c5.2 0 9.5 4.3 9.5 9.5s-4.3 9.5-9.5 9.5S2.5 17.2 2.5 12 6.8 2.5 12 2.5Z" />
+              <path d="M3.4 12h17.2" />
+              <path d="M12 2.9c2.4 2.5 3.8 5.7 3.8 9.1S14.4 18.6 12 21.1" />
+              <path d="M12 2.9c-2.4 2.5-3.8 5.7-3.8 9.1S9.6 18.6 12 21.1" />
+            </svg>
+            English (IN)
+          </span>
+          <span>₹ INR</span>
+          <a href="#" aria-label="Facebook">f</a>
+          <a href="#" aria-label="X">X</a>
+          <a href="#" aria-label="Instagram">◎</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
